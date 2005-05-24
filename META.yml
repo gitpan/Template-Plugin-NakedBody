@@ -1,5 +1,5 @@
 name: Template-Plugin-NakedBody
-version: 0.01
+version: 0.02
 abstract: Strip HTML wrapping to get just the naked body
 author: Adam Kennedy <cpan@ali.as>
 license: perl

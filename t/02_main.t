@@ -21,7 +21,10 @@ BEGIN {
 
 # Does everything load?
 use Template::Plugin::NakedBody;
-use Test::More 'tests' => 8;
+use Test::More 'tests' => 5;
+
+my $coderef = Template::Plugin::NakedBody->coderef;
+is( ref($coderef), 'CODE', '->coderef returns a CODE reference' );
 
 
 
@@ -39,9 +42,7 @@ This is the content
 </html>
 END_HTML
 
-my $object = Template::Plugin::NakedBody->new;
-isa_ok( $object, 'Template::Plugin::NakedBody' );
-is( $object->filter( $content ), "\nThis is the content\n",
+is( $coderef->( $content ), "\nThis is the content\n",
 	"Basic filter returns as expected" );
 }
 
@@ -58,9 +59,7 @@ This is the content
 </html>
 END_HTML
 
-my $object = Template::Plugin::NakedBody->new;
-isa_ok( $object, 'Template::Plugin::NakedBody' );
-is( $object->filter( $content ), "\nThis is the content\n",
+is( $coderef->( $content ), "\nThis is the content\n",
 	"onload filter returns as expected" );
 }
 
@@ -77,9 +76,7 @@ This is the <body> content
 </html>
 END_HTML
 
-my $object = Template::Plugin::NakedBody->new;
-isa_ok( $object, 'Template::Plugin::NakedBody' );
-is( $object->filter( $content ), "\nThis is the <body> content\n",
+is( $coderef->( $content ), "\nThis is the <body> content\n",
 	"Broken content filter returns as expected" );
 }
 
@@ -94,8 +91,6 @@ my $content = <<'END_HTML';
 This is the content
 END_HTML
 
-my $object = Template::Plugin::NakedBody->new;
-isa_ok( $object, 'Template::Plugin::NakedBody' );
-is( $object->filter( $content ), "\nThis is the content\n",
+is( $coderef->( $content ), "\nThis is the content\n",
 	"Broken content filter returns as expected" );
 }

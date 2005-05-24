@@ -54,7 +54,7 @@ use base 'Template::Plugin::Filter';
 
 use vars qw{$VERSION};
 BEGIN {
-	$VERSION = '0.01';
+	$VERSION = '0.02';
 }
 
 
@@ -64,8 +64,24 @@ BEGIN {
 #####################################################################
 # Template::Plugin::Filter Methods
 
+sub init {
+	my $self = shift;
+	my $name = $self->{_CONFIG}->{name} || 'NakedBody';
+	$self->install_filter($name);
+	$self;
+}
+
+sub coderef {
+	\&_filter;
+}
+
 sub filter {
 	my ($self, $text) = @_;
+	_filter( $text );
+}
+
+sub _filter {
+	my $text = shift;	
 
 	# Strip away everything before the <body> tag
 	$text =~ s/\A.*?<body.*?>//is;
