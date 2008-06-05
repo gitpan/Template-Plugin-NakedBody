@@ -1,27 +1,19 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 
 # Main unit tests for Template::Plugin::NakedBody module
 
 use strict;
-use lib ();
-use UNIVERSAL 'isa';
-use File::Spec::Functions ':ALL';
 BEGIN {
-	$| = 1;
-	unless ( $ENV{HARNESS_ACTIVE} ) {
-		require FindBin;
-		chdir ($FindBin::Bin = $FindBin::Bin); # Avoid a warning
-		lib->import( catdir( updir(), updir(), 'modules') );
-	}
+	$|  = 1;
+	$^W = 1;
 }
 
 
 
 
 
-# Does everything load?
+use Test::More tests => 5;
 use Template::Plugin::NakedBody;
-use Test::More 'tests' => 5;
 
 my $coderef = Template::Plugin::NakedBody->coderef;
 is( ref($coderef), 'CODE', '->coderef returns a CODE reference' );

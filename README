@@ -1,6 +1,5 @@
 NAME
-    Template::Plugin::NakedBody - Strip HTML wrapping to get just the naked
-    body
+    Template::Plugin::NakedBody - Strip HTML to just keep the body content
 
 SYNOPSIS
       # _included.html
@@ -51,7 +50,7 @@ SUPPORT
     author.
 
 AUTHOR
-    Adam Kennedy , <http://ali.as/>, cpan@ali.as
+    Adam Kennedy <adamk@cpan.org>
 
 ACKOWLEDGEMENTS
     Thank you to Phase N Australia (<http://phase-n.com/>) for permitting
@@ -59,9 +58,10 @@ ACKOWLEDGEMENTS
     commercial project.
 
 COPYRIGHT
-    Copyright (c) 2005 Adam Kennedy. All rights reserved. This program is
-    free software; you can redistribute it and/or modify it under the same
-    terms as Perl itself.
+    Copyright 2005 - 2008 Adam Kennedy.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
 
     The full text of the license can be found in the LICENSE file included
     with this module.

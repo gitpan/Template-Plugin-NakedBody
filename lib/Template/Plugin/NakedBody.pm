@@ -4,7 +4,7 @@ package Template::Plugin::NakedBody;
 
 =head1 NAME
 
-Template::Plugin::NakedBody - Strip HTML wrapping to get just the naked body
+Template::Plugin::NakedBody - Strip HTML to just keep the body content
 
 =head1 SYNOPSIS
 
@@ -48,13 +48,14 @@ And that's what this module does. It removes everything to keep only what
 is B<inside> the body tags.
 
 =cut
-    
+
+use 5.005;
 use strict;
 use base 'Template::Plugin::Filter';
 
 use vars qw{$VERSION};
 BEGIN {
-	$VERSION = '0.02';
+	$VERSION = '1.03';
 }
 
 
@@ -104,7 +105,7 @@ For other issues, or commercial enhancement or support, contact the author.
 
 =head1 AUTHOR
 
-Adam Kennedy , L<http://ali.as/>, cpan@ali.as
+Adam Kennedy E<lt>adamk@cpan.orgE<gt>
 
 =head1 ACKOWLEDGEMENTS
 
@@ -114,7 +115,8 @@ commercial project.
 
 =head1 COPYRIGHT
 
-Copyright (c) 2005 Adam Kennedy. All rights reserved.
+Copyright 2005 - 2008 Adam Kennedy.
+
 This program is free software; you can redistribute
 it and/or modify it under the same terms as Perl itself.
 
